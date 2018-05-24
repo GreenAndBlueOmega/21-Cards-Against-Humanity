@@ -7,6 +7,6 @@ public class MainMenu {
 	}
 
 	private static void menu() {
-		Blackjack.playBlackjack();
+		CardsAgainstHumanity.playCardsAgainstHumanity();
 	}
 }
