@@ -3,14 +3,14 @@ package models;
 import java.util.ArrayList;
 
 public class BlackjackPlayer extends Player {
-	private ArrayList<Card> hand;
+	private ArrayList<PlayingCard> hand;
 	private boolean isBusted;
 	
-	public ArrayList<Card> getHand() {
+	public ArrayList<PlayingCard> getHand() {
 		return this.hand;
 	}
 	
-	public void setHand(ArrayList<Card> hand) {
+	public void setHand(ArrayList<PlayingCard> hand) {
 		this.hand = hand;
 	}
 	
