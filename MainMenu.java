@@ -1,5 +1,7 @@
 package controllers;
 
+import lib.ConsoleIO;
+
 public class MainMenu {
 	
 	public static void run() {
@@ -7,6 +9,18 @@ public class MainMenu {
 	}
 
 	private static void menu() {
-		CardsAgainstHumanity.playCardsAgainstHumanity();
+		boolean isInvalid = true;
+		do {
+			String[] options = {"Play Blackjack", "Play Cards Against Humanity"};
+			int menuChoice = ConsoleIO.promptForMenuSelection(options, true);
+			
+			if (menuChoice == 1) {
+				Blackjack.playBlackjack();
+			} else if (menuChoice == 2) {
+				CardsAgainstHumanity.cardsMainMenu();
+			} else {
+				isInvalid = false;
+			}
+		} while (isInvalid);
 	}
 }

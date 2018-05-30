@@ -1,6 +1,7 @@
 package controllers;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import enums.Suit;
 import enums.Value;
@@ -11,25 +12,24 @@ import models.BlackjackPlayer;
 public class Blackjack {
 	
 	private ArrayList<BlackjackPlayer> players = new ArrayList<>();
-	private static ArrayList<Card> deck;
+	private static ArrayList<PlayingCard> deck;
 	
 	public static void playBlackjack() {
 		deck = createDeck();
 	}
 	
-	private static ArrayList<Card> createDeck() {
-		ArrayList<Card> cleanDeck = new ArrayList<>();
+	private static ArrayList<PlayingCard> createDeck() {
+		ArrayList<PlayingCard> cleanDeck = new ArrayList<>();
 		Suit[] suits = Suit.values();
 		Value[] values = Value.values();
 		
 		for (int v = 0; v < values.length; v++) {
 			for (int s = 0; s < suits.length; s++) {
-				Card c = new PlayingCard(values[v], suits[s]);
+				PlayingCard c = new PlayingCard(values[v], suits[s]);
 				cleanDeck.add(c);
-				System.out.println(c);
 			}
 		}
-		
+		shuffleCards(cleanDeck);
 		return cleanDeck;
 	}
 	
@@ -37,8 +37,10 @@ public class Blackjack {
 		
 	}
 	
-	private static void shuffleCards(ArrayList<Card> deck) {
-		
+	private static void shuffleCards(ArrayList<PlayingCard> deck) {
+		for (int c = 0; c < 7; c++) {
+			Collections.shuffle(deck);
+		}
 	}
 	
 	private void takeTurn(BlackjackPlayer p) {
