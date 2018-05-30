@@ -14,6 +14,9 @@ public class CardSet {
 	private Suits suit;
 	private int assignedCardValue;
 	
+	public CardSet( Suits cardSuit, Value cardValue) {
+		// TODO Auto-generated constructor stub
+	}
 	private Value getValue() {
 	
 		return value;
@@ -26,11 +29,11 @@ public class CardSet {
 		return suit;
 	}
 	public void setSuit(Suits suit) {
-		this.suit = suit;
 		Random selectSuit = new Random();
 //		Suits.values().
 		Suits[] cardSuits = Suits.values();
 		suit = cardSuits[selectSuit.nextInt(cardSuits.length)];
+		this.suit = suit;
 	}
 	public int getAssignedCardValue() {
 		return assignedCardValue;
@@ -67,6 +70,13 @@ public class CardSet {
 	case KING: 
 		this.assignedCardValue = 10;
 		}
+		
+		
+	}
+	@Override
+	public String toString() {
+		
+		return getAssignedCardValue() + "/n" + getSuit();
 	}
 	
 	
