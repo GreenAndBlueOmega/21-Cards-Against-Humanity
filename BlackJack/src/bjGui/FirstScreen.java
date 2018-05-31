@@ -13,5 +13,4 @@ public class FirstScreen extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
-//Yea works
 }

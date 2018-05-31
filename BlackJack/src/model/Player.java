@@ -2,10 +2,20 @@ package model;
 
 import java.util.ArrayList;
 
-public class Player extends Players {
+public class Player {
 
-	static ArrayList<Player> currentPlayers = new ArrayList<>();
 	
 	
+private static String name;
+	
+	
+	public static String getName() {
+		return name;
+	}
+	public static void setName(String name) {
+		
+		name = name;
+
+	}
 	
 }
