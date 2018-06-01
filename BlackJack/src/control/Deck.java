@@ -6,41 +6,33 @@ import java.util.Random;
 
 import enums.Suits;
 import enums.Value;
-import model.CardSet;
+import model.*;
 
 public class Deck {
 
-	private static ArrayList<CardSet> deck;
+	public static ArrayList<Card> deck;
 
-	static Random select = new Random();
-	public Deck() {
-
-	}
-
-	public ArrayList<CardSet> gettingCards() {
-		shuffleTime();
+	public ArrayList<Card> gettingCards() {
+		shuffleTime(deck);
 		return deck;
 	}
 
 	private static void newDeck() {
-		deck = new ArrayList<CardSet>();
+		deck = new ArrayList<Card>();
 
-	CardSet setCards = new CardSet(Suits.SPADES, Value.ACE);
+	Card establishCards = new Card(Suits.SPADES, Value.ACE);
 			for(Suits cardSuit:Suits.values())
 	{
 		for (Value cardValue : Value.values()) {
-			deck.add(setCards = new CardSet(cardSuit, cardValue));
+			deck.add(establishCards = new Card(cardSuit, cardValue));
 		}
 
 	}
 }
-	public static void shuffleTime() {
-			try {
+	public static void shuffleTime(ArrayList<Card> deck) {
+	
 			 Collections.shuffle(deck);
-			} catch (NullPointerException e) {
-
-			}
-
+	
 	}
 	
 }

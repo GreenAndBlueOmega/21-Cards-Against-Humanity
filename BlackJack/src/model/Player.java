@@ -2,20 +2,29 @@ package model;
 
 import java.util.ArrayList;
 
+import model.*;
 public class Player {
 
 	
+	public ArrayList<Card> playerHand;
 	
-private static String name;
+	public ArrayList<Card> getPlayerHand() {
+		return playerHand;
+	}
+	public void setPlayerHand(ArrayList<Card> playerHand) {
+		this.playerHand = playerHand;
+	}
+	private String name;
+
 	
-	
-	public static String getName() {
+	public String getName() {
 		return name;
 	}
-	public static void setName(String name) {
+	public  void setName(String name) {
 		
-		name = name;
+		this.name = name;
 
 	}
+	
 	
 }
