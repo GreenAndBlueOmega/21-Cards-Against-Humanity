@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.GUIMainMenu">
+   <children>
+      <Button layoutX="26.0" layoutY="436.0" mnemonicParsing="false" onAction="#cardsAgainstHumanityClicked" prefHeight="125.0" prefWidth="553.0" text="Cards Against Humanity">
+         <font>
+            <Font name="System Bold" size="43.0" />
+         </font>
+      </Button>
+      <Button layoutX="656.0" layoutY="436.0" mnemonicParsing="false" onAction="#blackjackClicked" prefHeight="125.0" prefWidth="303.0" text="Blackjack">
+         <font>
+            <Font name="System Bold" size="50.0" />
+         </font>
+      </Button>
+      <Text layoutX="365.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="21 Cards Against Humanity" textAlignment="CENTER" wrappingWidth="310.5078125">
+         <font>
+            <Font name="System Bold" size="56.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
