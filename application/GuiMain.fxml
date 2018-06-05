@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.GUIController">
+  <!-- TODO Add Nodes -->
+  <children>
+    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="990.0" prefWidth="1157.0">
+      <center>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+          <children>
+            <ImageView fitHeight="568.6440863825806" fitWidth="335.5" layoutX="78.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true">
+              <image>
+                <Image url="@../../../../../Desktop/Pics/OOP_Final/Cards_Main.jpg" />
+              </image>
+            </ImageView>
+            <ImageView fitHeight="338.80694580078125" fitWidth="452.32474901576205" layoutX="680.0" layoutY="338.0" pickOnBounds="true" preserveRatio="true">
+              <image>
+                <Image url="@../../../../../Desktop/Pics/OOP_Final/Blackjack_Main.jpg" />
+              </image>
+            </ImageView>
+            <Button layoutX="57.0" layoutY="510.0" mnemonicParsing="false" onAction="#cardsAgainstHumanityClicked" text="Cards Against Humanity">
+              <font>
+                <Font name="System Bold" size="40.0" fx:id="x1" />
+              </font>
+            </Button>
+            <Button font="$x1" layoutX="803.0" layoutY="510.0" mnemonicParsing="false" onAction="#newScene" text="Blackjack" />
+          </children>
+        </AnchorPane>
+      </center>
+      <top>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
+      </top>
+    </BorderPane>
+  </children>
+</AnchorPane>

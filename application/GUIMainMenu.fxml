@@ -1,28 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
 <?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.GUIMainMenu">
-   <children>
-      <Button layoutX="26.0" layoutY="436.0" mnemonicParsing="false" onAction="#cardsAgainstHumanityClicked" prefHeight="125.0" prefWidth="553.0" text="Cards Against Humanity">
-         <font>
-            <Font name="System Bold" size="43.0" />
-         </font>
-      </Button>
-      <Button layoutX="656.0" layoutY="436.0" mnemonicParsing="false" onAction="#blackjackClicked" prefHeight="125.0" prefWidth="303.0" text="Blackjack">
-         <font>
+<BorderPane maxHeight="-1.0" maxWidth="-1.0" minHeight="-1.0" minWidth="-1.0" prefHeight="800.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.GUIController">
+<ImageView fitHeight="1800.0" fitWidth="2000.0" pickOnBounds="true" preserveRatio="true">
+   <image>
+   	<Image url="@../../../../../Desktop/OOP_Final/a-closeup-pan-across-a-vintage-arcade-game-machine-with-a-bright-illuminated-screen-that-changes-red-to-read-game-over-on-a-dark-arcade-background_vjgv_owze__F0000.png"></Image>
+   </image>
+   </ImageView>
+  <center>
+    <VBox alignment="CENTER" prefHeight="500.0" prefWidth="500.0">
+      <children>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="0.0">
+          <children>
+            <ImageView fitHeight="331.0" fitWidth="195.29000639118289" pickOnBounds="true" preserveRatio="true">
+              <image>
+                <Image url="@../../../../../Desktop/OOP_Final/cards-against-humanity-main.png" />
+              </image>
+              <HBox.margin>
+                <Insets left="40.0" />
+              </HBox.margin>
+            </ImageView>
+            <ImageView fitHeight="59.50000308990455" fitWidth="79.33334350585938" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="244.80694580078125" fitWidth="326.829900298928" pickOnBounds="true" preserveRatio="true">
+              <image>
+                <Image url="@../../../../../Desktop/OOP_Final/test.jpg" />
+              </image>
+            </ImageView>
+          </children>
+          <VBox.margin>
+            <Insets left="60.0" />
+          </VBox.margin>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+          <children>
+            <Button mnemonicParsing="false" onAction="#cardsAgainstHumanityButton" text="Cards Against Humanity" textAlignment="CENTER">
+              <font>
+                <Font name="System Bold" size="24.0" fx:id="x1" />
+              </font>
+              <HBox.margin>
+                <Insets right="40.0" />
+              </HBox.margin>
+            </Button>
+            <Button font="$x1" mnemonicParsing="false" onAction="#blackjackButton" text="Blackjack" textAlignment="CENTER" />
+          </children>
+        </HBox>
+      </children>
+    </VBox>
+  </center>
+  <top>
+    <HBox alignment="CENTER" prefHeight="146.0" prefWidth="800.0">
+      <children>
+        <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="21 Cards AgainstHumanity" textAlignment="CENTER">
+          <font>
             <Font name="System Bold" size="50.0" />
-         </font>
-      </Button>
-      <Text layoutX="365.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="21 Cards Against Humanity" textAlignment="CENTER" wrappingWidth="310.5078125">
-         <font>
-            <Font name="System Bold" size="56.0" />
-         </font>
-      </Text>
-   </children>
-</AnchorPane>
+          </font>
+        </Text>
+      </children>
+    </HBox>
+  </top>
+</BorderPane>

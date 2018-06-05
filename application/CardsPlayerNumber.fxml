@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.GUIController">
+   <children>
+      <Text fill="WHITE" layoutX="378.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cards Against Humanity" textAlignment="CENTER" wrappingWidth="244.05859375">
+         <font>
+            <Font name="System Bold" size="44.0" />
+         </font>
+      </Text>
+      <TextField layoutX="429.0" layoutY="400.0" promptText="player number" />
+      <Text fill="WHITE" layoutX="354.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How many Bigger Blacker Boxes???" textAlignment="CENTER" wrappingWidth="321.18359375">
+         <font>
+            <Font size="32.0" />
+         </font></Text>
+      <Button layoutX="755.0" layoutY="688.0" mnemonicParsing="false" onAction="#newScene" text="new scene" />
+   </children>
+</AnchorPane>
