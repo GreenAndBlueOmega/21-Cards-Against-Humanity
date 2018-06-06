@@ -1,8 +1,11 @@
 package models;
 
+import java.io.Serializable;
+
 import enums.Color;
 
-public abstract class Card {
+public abstract class Card implements Serializable {
+	private static final long serialVersionUID = 1L;
 	protected String text;
 	protected Color color;
 	

@@ -5,6 +5,10 @@ import enums.Suit;
 import enums.Value;
 
 public class PlayingCard extends Card {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Value value;
 	private Suit suit;
 	

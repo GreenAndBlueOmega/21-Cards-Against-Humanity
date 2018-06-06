@@ -23,7 +23,7 @@ public class BlackCard extends Card {
 		this.play = play;
 	}
 	
-	public BlackCard(int draw, int play, String text) {
+	public BlackCard(String text, int draw, int play) {
 		setDraw(draw);
 		setPlay(play);
 		setColor(Color.BLACK);

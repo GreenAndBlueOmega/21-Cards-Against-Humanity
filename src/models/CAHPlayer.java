@@ -2,8 +2,6 @@ package models;
 
 import java.util.ArrayList;
 
-import javafx.collections.ObservableList;
-
 public class CAHPlayer extends Player {
 
 	private int points;

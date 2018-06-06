@@ -16,6 +16,9 @@ public class Blackjack {
 	
 	public static void playBlackjack() {
 		deck = createDeck();
+		for (PlayingCard c : deck) {
+			System.out.println(c);
+		}
 	}
 	
 	private static ArrayList<PlayingCard> createDeck() {
