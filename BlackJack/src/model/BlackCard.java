@@ -25,7 +25,7 @@ public class BlackCard extends Card {
 	}
 	
 	public BlackCard(Suits cardSuit, Value cardValue) {
-	super(cardSuit,cardValue);	
+	super(cardValue,cardSuit);	
 	}
 //	public BlackCard(int draw, int play) {
 //		setDraw(draw);

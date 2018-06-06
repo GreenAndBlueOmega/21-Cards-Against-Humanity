@@ -12,25 +12,26 @@ public class Deck {
 
 	public static ArrayList<Card> deck;
 
-	public ArrayList<Card> gettingCards() {
+	public static ArrayList<Card> gettingCards() {
+		newDeck();
 		shuffleTime(deck);
 		return deck;
 	}
 
-	private static void newDeck() {
+	public static void newDeck() {
 		deck = new ArrayList<Card>();
 
-	Card establishCards = new Card(Suits.SPADES, Value.ACE);
+	Card establishCards = new Card(Value.ACE, Suits.SPADES);
 			for(Suits cardSuit:Suits.values())
 	{
 		for (Value cardValue : Value.values()) {
-			deck.add(establishCards = new Card(cardSuit, cardValue));
-		}
+			deck.add(establishCards = new Card(cardValue, cardSuit));
+		} 
 
 	}
 }
 	public static void shuffleTime(ArrayList<Card> deck) {
-	
+			
 			 Collections.shuffle(deck);
 	
 	}

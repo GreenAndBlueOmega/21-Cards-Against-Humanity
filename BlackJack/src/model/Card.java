@@ -13,10 +13,11 @@ public class Card {
 	private Suits suit;
 	
 	
-	public Card( Suits cardSuit, Value cardValue) {
-		// TODO Auto-generated constructor stub
+	public Card( Value cardValue, Suits cardSuit) {
+		setSuit(cardSuit);
+		setValue(cardValue);
 	}
-	private Value getValue() {
+	public Value getValue() {
 	
 		return value;
 	}
@@ -29,15 +30,11 @@ public class Card {
 	}
 	public void setSuit(Suits suit) {
 		Random selectSuit = new Random();
-//		Suits.values().
+
 		Suits[] cardSuits = Suits.values();
 		suit = cardSuits[selectSuit.nextInt(cardSuits.length)];
 		this.suit = suit;
 	}
-	
-	
-	
-	
 	
 	
 }

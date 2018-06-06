@@ -2,15 +2,18 @@ package model;
 
 import java.util.ArrayList;
 
+import lib.ConsoleIO;
+
 public class BlackjackPlayer extends Player {
-	private ArrayList<PlayingCard> hand;
+	public static ArrayList<Card> hand;
 	private boolean isBusted;
 	
-	public ArrayList<PlayingCard> getHand() {
+	
+	public ArrayList<Card> getHand() {
 		return this.hand;
 	}
 	
-	public void setHand(ArrayList<PlayingCard> hand) {
+	public void setHand(ArrayList<Card> hand) {
 		this.hand = hand;
 	}
 	
@@ -22,9 +25,17 @@ public class BlackjackPlayer extends Player {
 		this.isBusted = isBusted;
 	}
 	
-	@Override
-	public String toString() {
-		String retVal = getName() + " has " + (isBusted ? "" : "not ") + "busted.";
-		return retVal;
+	public BlackjackPlayer(String name) {
+		setName(name);
 	}
-}
+
+
+	
+	
+	}
+	
+//	@Override
+//	public String toString() {
+//		String retVal = getName() + " has " + (isBusted ? "" : "not ") + "busted.";
+//		return retVal;
+//	}

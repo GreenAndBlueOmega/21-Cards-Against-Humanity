@@ -3,7 +3,6 @@ package control;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
-
 import enums.Suits;
 import enums.Value;
 import lib.ConsoleIO;
@@ -13,35 +12,93 @@ public class PlayingBlackJack {
 
 	static Random select = new Random();
 	static ArrayList<Card> deck;
-	static ArrayList<Player> currentPlayers = new ArrayList<>();
-	private int assignedCardValue;
+	static ArrayList<BlackjackPlayer> currentPlayers = new ArrayList<>();
+	private static int assignedCardValue;
+	static ArrayList<Card> hand = new ArrayList<Card>();
+	static int cardValue;
+	static boolean loop = true;
+	static boolean loop2 = true;
+
+	public static void run() {
+		menu();
+	}
+
+	public static void menu() {
+
+		do {
+			String[] options = { "Play Game", "quit", "" };
+			int option = ConsoleIO.promptForMenuSelection(options, false);
+			if (option == 1) {
+				makePlayers();
+				subMenu();
+			}
+			if (option == 2) {
+				loop = false;
+			}
+
+		} while (loop);
+
+	}
 
 	public static void makePlayers() {
+
 		String name = ConsoleIO.promptForInput("What is this players name", true);
+		BlackjackPlayer neuChicken = new BlackjackPlayer(name);
 		if (name.isEmpty()) {
 
-			for (int i = 0; i < 4; i++) {
+			for (int i = 0; i < 1; i++) {
 
-				name = "Player" + i + 1;
+				name = "Player" + (i + 1);
 			}
+			currentPlayers.add(neuChicken);
 		}
-
+		System.out.println(name + " Please Choice an Option: ");
+		playerCards();
 	}
 
-	public ArrayList<Card> playerCards() {
+	public static ArrayList<Card> playerCards() {
+		Deck.gettingCards();
 		ArrayList<Card> hand = null;
 
-		for (Player cP : currentPlayers) {
-			hand = cP.getPlayerHand();
-			hand.add(deck.get(0));
+		for (BlackjackPlayer cP : currentPlayers) {
+			hand = cP.getHand();
+			hand.add(Deck.deck.get(0));
 			deck.remove(0);
+			cP.setHand(hand);
 
 		}
-
 		return hand;
-
 	}
 
+	public static void subMenu() {
+		
+		do {
+		String[] options = {
+		"Hit", "Stand", "Give Up" 		
+		};
+	int menuChoice = ConsoleIO.promptForMenuSelection(options, false);
+	if(menuChoice == 1) {
+		draw();
+		playerWins();
+	}
+	if(menuChoice == 2) {
+		
+	}
+	if(menuChoice == 3) {
+		loop2 = false;
+	}
+		
+			
+		}while(loop2);
+	}
+
+	
+	public static void draw() {
+		Deck.newDeck();
+		hand.add(Deck.deck.get(0));
+		calculateHandValue();
+		System.out.println(hand);
+	}
 	public int getAssignedCardValue() {
 		return assignedCardValue;
 	}
@@ -58,29 +115,34 @@ public class PlayingBlackJack {
 		case KING:
 			this.assignedCardValue = 10;
 		}
-
-	}
-
-	public ArrayList<Card> gettingCards() {
-		shuffleTime(deck);
-		return deck;
-	}
-
-	private static void newDeck() {
-		deck = new ArrayList<Card>();
-
-		Card establishCards = new Card(Suits.SPADES, Value.ACE);
-		for (Suits cardSuit : Suits.values()) {
-			for (Value cardValue : Value.values()) {
-				deck.add(establishCards = new Card(cardSuit, cardValue));
+		if (playerCards().size() >= 12) {
+			switch (value) {
+			case ACE:
+				this.assignedCardValue = 1;
 			}
+		}
 
+	}
+
+	public static void calculateHandValue() {
+		int handsValue = 0;
+		for (int i = 0; i < hand.size(); i++) {
+			cardValue = hand.get(i).getValue().ordinal();
+			if (Value.JACK.ordinal() > 10 || Value.QUEEN.ordinal() > 10 || Value.KING.ordinal() > 10) {
+				assignedCardValue = 10;
+			}
+		}
+		if (hand.contains(Value.ACE) && handsValue > 11) {
+			handsValue -= 10;
+		}
+		handsValue = cardValue;
+	}
+
+	public static void playerWins() {
+		calculateHandValue();
+		if (cardValue == 21) {
+			System.out.println("You win");
 		}
 	}
 
-	public static void shuffleTime(ArrayList<Card> deck) {
-
-		Collections.shuffle(deck);
-
-	}
 }

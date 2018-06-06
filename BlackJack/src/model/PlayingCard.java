@@ -1,12 +1,11 @@
-package application;
+package model;
 
-import enums.Color;
-import enums.Suit;
+import enums.Suits;
 import enums.Value;
 
 public class PlayingCard extends Card {
 	private Value value;
-	private Suit suit;
+	private Suits suit;
 	
 	public Value getValue() {
 		return this.value;
@@ -16,29 +15,23 @@ public class PlayingCard extends Card {
 		this.value = value;
 	}
 	
-	public Suit getSuit() {
+	public Suits getSuit() {
 		return this.suit;
 	}
 	
-	public void setSuit(Suit suit) {
+	public void setSuit(Suits suit) {
 		this.suit = suit;
 	}
 	
-	public PlayingCard(Value value, Suit suit) {
+	public PlayingCard(Value value, Suits suit) {
+	super(value, suit);
 		setValue(value);
 		setSuit(suit);
-		
-		if (suit.equals(Suit.CLUBS) || suit.equals(Suit.SPADES)) {
-			setColor(Color.BLACK);
-		} else {
-			setColor(Color.RED);
-		}
-		
-		String v = value.toString();
-			v = v.substring(0, 1).toUpperCase() + v.substring(1).toLowerCase();
-		String s = suit.toString();
-			s = s.substring(0, 1).toUpperCase() + s.substring(1).toLowerCase();
-		String info = v + " of " + s;
-		setText(info);
 	}
-}
+		
+//		String v = value.toString();
+//			v = v.substring(0, 1).toUpperCase() + v.substring(1).toLowerCase();
+//		String s = suit.toString();
+//			s = s.substring(0, 1).toUpperCase() + s.substring(1).toLowerCase();
+//		String info = v + " of " + s;
+	}
