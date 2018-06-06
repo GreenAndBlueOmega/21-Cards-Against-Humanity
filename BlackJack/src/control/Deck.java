@@ -31,16 +31,6 @@ public class Deck {
 }
 	public static void shuffleTime(ArrayList<Card> Deck) {
 				Collections.shuffle(deck);
-//		Random rand = new Random();
-//		int a;
-//		for (int i = 0; i < 52; i++) {
-//			a = rand.nextInt(deck.size());
-//			try {
-//				sDeck.add(deck.remove(a));
-//			} catch (NullPointerException e) {
-//				break;
-//			}
-//		}
 
 	
 	}

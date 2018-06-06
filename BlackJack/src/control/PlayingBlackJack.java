@@ -18,7 +18,8 @@ public class PlayingBlackJack {
 	static int cardValue;
 	static boolean loop = true;
 	static boolean loop2 = true;
-
+	static boolean youWin = true;
+	static int handsValue = 0;
 	public static void run() {
 		menu();
 	}
@@ -92,7 +93,7 @@ public class PlayingBlackJack {
 	if(menuChoice == 1) {
 		Deck.shuffleTime(deck);
 		draw();
-		playerWins();
+		//playerWins();
 	}
 	if(menuChoice == 2) {
 		stand();
@@ -110,7 +111,8 @@ public class PlayingBlackJack {
 		hand.add(Deck.deck.get(0));
 		Deck.deck.remove(0);
 		System.out.println(hand);
-		calculateHandValue();
+		//calculateHandValue();
+		checkWins();
 	}
 	public static void firstDraw() {
 		for(int i = 0; i < 2; i++) {	
@@ -148,25 +150,57 @@ public class PlayingBlackJack {
 	}
 
 	public static void calculateHandValue() {
-		int handsValue = 0;
+		 handsValue = 0;
 		for (int i = 0; i < hand.size(); i++) {
-			cardValue = hand.get(i).getValue().ordinal();
-			if (Value.JACK.ordinal() > 10 || Value.QUEEN.ordinal() > 10 || Value.KING.ordinal() > 10) {
-				assignedCardValue = 10;
+			cardValue = hand.get(i).getValue().ordinal() + 1;
+			if(cardValue > 10) {
+			
+//			if (Value.JACK.ordinal() > 10 || Value.QUEEN.ordinal() > 10 || Value.KING.ordinal() > 10) {
+				cardValue = 10;
+				//Value.JACK.ordinal() = 10;
+//			}
 			}
+			if (cardValue ==Value.ACE.ordinal() && handsValue > 11) {
+				cardValue -= 10;
+			}
+			handsValue += cardValue; 
 		}
-		if (hand.contains(Value.ACE) && handsValue > 11) {
-			handsValue -= 10;
-		}
-		handsValue += cardValue; 
-		System.out.println(cardValue);
+		System.out.println(handsValue);
 	}
-
-	public static void playerWins() {
+	public static void checkWins() {
 		calculateHandValue();
-		if (cardValue == 21) {
-			System.out.println("You win");
+		if (handsValue == 21) {
+			System.out.println("Congratulations You WON " + "YOU GET TO STAY HERE" );
+			EndGame();
+		
 		}
+		else if(handsValue > 21) {
+			System.out.println("You Busted " + "Try Again in the Next Life ");
+			EndGame();
+		}
+		
+	}
+	public static void EndGame() {
+		ConsoleIO.promptForInput(" ", true);
+		System.out.println("Just Kidding");
+		boolean retry = false;
+	do {	
+			
+			String[] choices = {
+			"Play Again", "Quit"		
+			};
+			int choice = ConsoleIO.promptForMenuSelection(choices, false);
+			if(choice == 1 ) {
+				retry = true;
+				loop2 = false;
+			}
+			if(choice == 2) {
+				retry = false;
+				loop2 = false;
+				loop = false;
+			}
+		
+	}while(!retry);
 	}
 
 }
