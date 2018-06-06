@@ -30,6 +30,7 @@ public class PlayingBlackJack {
 			String[] options = { "Play Game", "quit" };
 			int option = ConsoleIO.promptForMenuSelection(options, false);
 			if (option == 1) {
+				hand.clear();
 				makePlayers();
 				subMenu();
 			}
@@ -96,9 +97,11 @@ public class PlayingBlackJack {
 		//playerWins();
 	}
 	if(menuChoice == 2) {
+		System.out.println("You Lose");
 		stand();
 	}
 	if(menuChoice == 3) {
+		System.out.println("You Lose");
 		quit();
 	}
 		
@@ -163,6 +166,9 @@ public class PlayingBlackJack {
 			if (cardValue ==Value.ACE.ordinal() && handsValue > 11) {
 				cardValue -= 10;
 			}
+			else if(cardValue ==Value.ACE.ordinal() && handsValue < 11) {
+				cardValue = 1;
+			}
 			handsValue += cardValue; 
 		}
 		System.out.println(handsValue);
@@ -191,6 +197,8 @@ public class PlayingBlackJack {
 			};
 			int choice = ConsoleIO.promptForMenuSelection(choices, false);
 			if(choice == 1 ) {
+				hand.clear();
+				currentPlayers.clear();
 				retry = true;
 				loop2 = false;
 			}
