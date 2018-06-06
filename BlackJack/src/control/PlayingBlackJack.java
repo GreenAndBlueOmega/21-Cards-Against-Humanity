@@ -26,20 +26,29 @@ public class PlayingBlackJack {
 	public static void menu() {
 
 		do {
-			String[] options = { "Play Game", "quit", "" };
+			String[] options = { "Play Game", "quit" };
 			int option = ConsoleIO.promptForMenuSelection(options, false);
 			if (option == 1) {
 				makePlayers();
 				subMenu();
 			}
 			if (option == 2) {
+			
 				loop = false;
 			}
 
 		} while (loop);
 
 	}
+	
+	public static void quit() {
+		loop2 = false;
+	}
 
+	public static void stand() {
+		
+	}
+	
 	public static void makePlayers() {
 
 		String name = ConsoleIO.promptForInput("What is this players name", true);
@@ -53,6 +62,9 @@ public class PlayingBlackJack {
 			currentPlayers.add(neuChicken);
 		}
 		System.out.println(name + " Please Choice an Option: ");
+		Deck.newDeck();
+		Deck.shuffleTime(deck);
+		firstDraw();
 		playerCards();
 	}
 
@@ -63,9 +75,8 @@ public class PlayingBlackJack {
 		for (BlackjackPlayer cP : currentPlayers) {
 			hand = cP.getHand();
 			hand.add(Deck.deck.get(0));
-			deck.remove(0);
+			
 			hand.add(Deck.deck.get(0));
-			deck.remove(0);
 			cP.setHand(hand);
 
 		}
@@ -73,33 +84,43 @@ public class PlayingBlackJack {
 	}
 
 	public static void subMenu() {
-		
 		do {
 		String[] options = {
 		"Hit", "Stand", "Give Up" 		
 		};
 	int menuChoice = ConsoleIO.promptForMenuSelection(options, false);
 	if(menuChoice == 1) {
+		Deck.shuffleTime(deck);
 		draw();
 		playerWins();
 	}
 	if(menuChoice == 2) {
-		
+		stand();
 	}
 	if(menuChoice == 3) {
-		loop2 = false;
+		quit();
 	}
 		
-			
 		}while(loop2);
 	}
 
 	
 	public static void draw() {
-		Deck.newDeck();
+//		Deck.newDeck();
 		hand.add(Deck.deck.get(0));
-		calculateHandValue();
+		Deck.deck.remove(0);
 		System.out.println(hand);
+		calculateHandValue();
+	}
+	public static void firstDraw() {
+		for(int i = 0; i < 2; i++) {	
+		//Deck.newDeck();
+		hand.add(Deck.deck.get(0));
+		Deck.deck.remove(0);
+		}
+		System.out.println(hand);
+		calculateHandValue();
+		
 	}
 	public int getAssignedCardValue() {
 		return assignedCardValue;
@@ -137,7 +158,8 @@ public class PlayingBlackJack {
 		if (hand.contains(Value.ACE) && handsValue > 11) {
 			handsValue -= 10;
 		}
-		handsValue = cardValue;
+		handsValue += cardValue; 
+		System.out.println(cardValue);
 	}
 
 	public static void playerWins() {

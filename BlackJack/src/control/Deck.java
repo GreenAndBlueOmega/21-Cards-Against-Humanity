@@ -11,6 +11,7 @@ import model.*;
 public class Deck {
 
 	public static ArrayList<Card> deck;
+	public static ArrayList<Card> sDeck;
 
 	public static ArrayList<Card> gettingCards() {
 		newDeck();
@@ -20,19 +21,27 @@ public class Deck {
 
 	public static void newDeck() {
 		deck = new ArrayList<Card>();
+		Card establishCards = new Card(null,null);
 
-	Card establishCards = new Card(Value.ACE, Suits.SPADES);
-			for(Suits cardSuit:Suits.values())
-	{
-		for (Value cardValue : Value.values()) {
-			deck.add(establishCards = new Card(cardValue, cardSuit));
-		} 
-
-	}
+		for(Suits cardSuit:Suits.values()){
+			for (Value cardValue : Value.values()) {
+				deck.add(establishCards = new Card(cardValue, cardSuit));
+			} 
+		}
 }
-	public static void shuffleTime(ArrayList<Card> deck) {
-			
-			 Collections.shuffle(deck);
+	public static void shuffleTime(ArrayList<Card> Deck) {
+				Collections.shuffle(deck);
+//		Random rand = new Random();
+//		int a;
+//		for (int i = 0; i < 52; i++) {
+//			a = rand.nextInt(deck.size());
+//			try {
+//				sDeck.add(deck.remove(a));
+//			} catch (NullPointerException e) {
+//				break;
+//			}
+//		}
+
 	
 	}
 	
