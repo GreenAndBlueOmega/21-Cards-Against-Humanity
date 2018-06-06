@@ -36,5 +36,9 @@ public class Card {
 		this.suit = suit;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "" + this.getSuit() + " : " + this.getValue();
+		
+	}
 }

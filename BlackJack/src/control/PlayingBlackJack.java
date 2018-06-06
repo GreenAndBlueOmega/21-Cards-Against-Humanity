@@ -64,6 +64,8 @@ public class PlayingBlackJack {
 			hand = cP.getHand();
 			hand.add(Deck.deck.get(0));
 			deck.remove(0);
+			hand.add(Deck.deck.get(0));
+			deck.remove(0);
 			cP.setHand(hand);
 
 		}
